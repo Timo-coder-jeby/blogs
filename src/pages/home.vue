@@ -101,6 +101,9 @@ export default {
       li
         margin-left 15px
         min-width 50px
+        display flex
+        align-items center
+        justify-content center
         &:hover
           color $theme
           cursor: pointer;
