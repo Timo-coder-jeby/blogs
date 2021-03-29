@@ -2,13 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 
 Vue.config.productionTip = false
-
+import '@/static/css/global.styl'
 import '@/static/css/element-variables.scss'
 import element from "@/static/js/element";
 Vue.use(element)
 
+import '@/static/js/component'
+import store from '@/store'
+
 import router from "@/router";
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

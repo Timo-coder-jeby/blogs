@@ -10,11 +10,16 @@ Router.prototype.replace = function replace (to) {
   return VueRouterReplace.call(this, to).catch(err => err)
 }
 Vue.use(Router)
-const router = [
+const routes = [
   {
     path:'/welcome',
     name:'welcome',
     component:()=>import("@/pages/welcome.vue")
+  },
+  {
+    path:'/home',
+    name:'home',
+    component:()=>import("@/pages/home.vue")
   },
   {
     path: '/',
@@ -23,5 +28,7 @@ const router = [
 ]
 
 export default new Router({
-  routes: router
+  base:'/blogs',
+  mode:'history',
+  routes,
 })
