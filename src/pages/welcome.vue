@@ -25,7 +25,7 @@ $theme = #41B883
   display flex
   justify-content center
   .el-button
-    margin-top 20vh
+    margin-top 30vh
     font-size 30px
     transition all .3s
     &:hover
