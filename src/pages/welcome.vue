@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <el-button type="text" @click="toHome">Hello World</el-button>
+    <div class="btn" @click="toHome">
+      <span>Hello World</span>
+    </div>
     <div class="origin"></div>
     <div class="theme"></div>
   </div>
@@ -24,14 +26,42 @@ $theme = #41B883
 .container
   display flex
   justify-content center
-  .el-button
-    margin-top 30vh
-    font-size 30px
-    transition all .3s
-    &:hover
-      transform scale(1.5)
-    &:active
-      transform rotate(360deg)
+  .btn
+    width 300px
+    height 120px
+    display flex
+    align-items center
+    justify-content center
+    position fixed
+    top 30%
+    left 50%
+    transform translateX(-50%)
+    cursor: pointer;
+    span
+      font-size 30px
+      color $theme
+      transition all .3s ease-in-out
+    &::before,&::after
+      content ''
+      position absolute
+      width 20px
+      height 20px
+      transition all .3s ease-in-out
+    &::before
+      top -5px
+      left -5px
+      border-top 1px solid $theme
+      border-left 1px solid $theme
+    &::after
+      right -5px
+      bottom -5px
+      border-bottom 1px solid $theme
+      border-right 1px solid $theme
+    &:hover::before,&:hover::after
+      width calc(100% + 9px)
+      height calc(100% + 9px)
+    &:hover > span
+      transform scale(1.2)
   .origin
     width 500px
     height 500px
