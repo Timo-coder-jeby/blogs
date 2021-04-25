@@ -60,11 +60,10 @@ export default {
     &.active
       padding-left 15px
       color $theme
+      transform translateX(10px) scale(1.1)
       border-right 4px solid $theme
       &::before
         content '\e603'
         font-family "iconfont"
         margin-right 4px
-      &:hover
-        transform scale(1)
 </style>
