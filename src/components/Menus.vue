@@ -54,6 +54,7 @@ export default {
     overflow hidden
     white-space nowrap
     text-overflow ellipsis
+    position relative
     &:hover
       color $theme
       transform translateX(10px) scale(1.1)
@@ -61,9 +62,16 @@ export default {
       padding-left 15px
       color $theme
       transform translateX(10px) scale(1.1)
-      border-right 4px solid $theme
       &::before
         content '\e603'
         font-family "iconfont"
         margin-right 4px
+      &::after
+        content ''
+        width 4px
+        height 100%
+        background $theme
+        position absolute
+        right 20px
+        top 0
 </style>
