@@ -8,7 +8,7 @@
         :class="{active:menu.checked}"
         @click="changeMenu(menu)"
         :title="menu.title"
-      >{{menu.title}}</li>
+      ><span>{{menu.title}}</span></li>
     </ul>
   </el-aside>
 </template>
@@ -51,10 +51,12 @@ export default {
     cursor: pointer;
     color #666
     transition transform .3s
-    overflow hidden
-    white-space nowrap
-    text-overflow ellipsis
     position relative
+    & > span
+      max-width 86%
+      overflow hidden
+      white-space nowrap
+      text-overflow ellipsis
     &:hover
       color $theme
       transform translateX(10px) scale(1.1)
