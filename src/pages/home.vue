@@ -4,7 +4,7 @@
       <div class="h-left">
         <i class="iconfont icon-J"></i><span>笔记</span>
       </div>
-      <!--<Aplayer :showlrc="true" :music="bgm[0]"/>-->
+      <Aplayer :showlrc="false" :music="bgm[0]" autoplay ref="audioPy" />
       <div class="h-right">
         <ul class="h-right__control">
           <li @click="$router.replace({name:'welcome'})"><i class="iconfont icon-home"></i>主页</li>
@@ -43,17 +43,22 @@ export default {
   data(){
     return {
       dropMenu:'CSS',
+      playerInstance:null,
       bgm:[
         {
           title:'成都',
           artist:'赵雷',
-          url:'',
+          url:'http://music.163.com/song/media/outer/url?id=436514312.mp3',
           pic:'https://img0.baidu.com/it/u=3215495165,1644239105&fm=26&fmt=auto&gp=0.jpg',
           lrc:'',
-          mini:true
+          mini:true,
         }
       ]
     }
+  },
+  activated() {
+    this.player = this.$refs.audioPy
+    this.player.play()
   },
   methods:{
     changeDropMenu(command){
@@ -68,6 +73,12 @@ export default {
     ...mapState({
       dropMenus:state => state.data
     })
+  },
+  beforeRouteLeave(to,from,next){
+    if (this.player) {
+      this.player.pause()
+    }
+    next()
   },
   components:{Aplayer}
 }
