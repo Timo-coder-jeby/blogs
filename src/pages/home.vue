@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import Bus from '@/static/js/bus'
 import {mapState} from 'vuex'
 import Aplayer from 'vue-aplayer'
 export default {
@@ -60,7 +59,7 @@ export default {
     changeDropMenu(command){
       if (command !== this.dropMenu) {
         this.$store.commit('CHANGEPARENTMENU', command)
-        Bus.$emit('initPrism')
+        this.bus.$emit('initPrism')
       }
       this.dropMenu = command
     }

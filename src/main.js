@@ -10,6 +10,8 @@ Vue.use(element)
 import '@/static/js/component'
 import store from '@/store'
 
+Vue.prototype.bus = new Vue()
+
 import router from "@/router";
 new Vue({
   render: h => h(App),

@@ -13,7 +13,6 @@
 <script>
 import Prism from 'prismjs'
 import {mapState} from 'vuex'
-import Bus from '@/static/js/bus'
 export default {
   name: "Content",
   data(){
@@ -21,7 +20,7 @@ export default {
   },
   mounted() {
     this.initPrism()
-    Bus.$on('initPrism',this.initPrism)
+    this.bus.$on('initPrism',this.initPrism)
   },
   methods:{
     initPrism(){

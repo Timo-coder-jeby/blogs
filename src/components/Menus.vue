@@ -15,7 +15,6 @@
 
 <script>
 import {mapState} from 'vuex'
-import Bus from '@/static/js/bus'
 export default {
   name: "Menus",
   data(){
@@ -24,7 +23,7 @@ export default {
   methods:{
     changeMenu(menu){
       this.$store.commit('CHANGEMENU',menu)
-      Bus.$emit('initPrism')
+      this.bus.$emit('initPrism')
     }
   },
   computed:{
