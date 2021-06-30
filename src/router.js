@@ -29,6 +29,6 @@ const routes = [
 
 export default new Router({
   base:'/blogs',
-  mode:'history',
+  // mode:'history',
   routes,
 })
